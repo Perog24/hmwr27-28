@@ -4,4 +4,6 @@ export const counterInitStore = {
 
 export const usersInitStore = {
    users: [],
+   posts: [],
+   comments: []
 }

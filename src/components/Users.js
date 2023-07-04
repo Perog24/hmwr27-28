@@ -1,24 +1,26 @@
-import {useEffect} from 'react';
-import { connect } from 'react-redux';
 import {useDispatch, useSelector} from 'react-redux';
 import { getUsersAsync } from '../store/actions/users.actions'
 
-export const Users = () => {
+const Users = () => {
    const dispatch = useDispatch();
    const users = useSelector(state=>state.users.users)
 
-    useEffect(()=>{
+    function handleUsers(){
       dispatch(getUsersAsync());
-   }, [dispatch]);
-   console.log(users);
+   };
 
    return (
-      <>
-      <h3>Users</h3>
-      <div>
 
-      </div>
-      </>
-   )
+    <div>
+      {(users.length !== 0) && (
+      <ol>
+        {users.map((user, index) => (<li key={index}>{user.name}</li> ))}
+      </ol>
+        )}        
+     
+      
+      <button onClick={handleUsers}>Get Users</button>
+    </div>
+  );
 }
-export default connect(mapStateToProps, mapDispatchToProps )(Users);
+export default Users;
