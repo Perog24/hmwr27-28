@@ -1,25 +1,14 @@
-import {useDispatch, useSelector} from 'react-redux';
-import { getCommentsAsync } from '../store/actions/users.actions'
+import { useSelector} from 'react-redux';
 
 const Comments = () => {
-   const dispatch = useDispatch();
-   const comments = useSelector(state=>state.users.comments)
-
-    function handleComments(){
-      dispatch(getCommentsAsync());
-   };
-
+   const comments = useSelector(state=>state.api.comments);
    return (
-
     <div>
       {(comments.length !== 0) && (
       <ol>
         {comments.map((comment, index) => (<li key={index}>{comment.name}</li> ))}
       </ol>
-        )}        
-     
-      
-      <button onClick={handleComments}>Get Comments</button>
+        )}      
     </div>
   );
 }

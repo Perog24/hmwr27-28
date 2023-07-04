@@ -1,18 +1,19 @@
+import { Outlet } from 'react-router';
+import { Provider } from 'react-redux';
+
+import Navbar from './components/Navbar';
+
+import myStore from './store';
+
 import './App.css';
-import Counter from './components/Counter';
-import Users  from './components/Users';
-import Posts  from './components/Posts';
-import Comments from './components/Сomments';
 
 
 function App() {
   return (
-    <div className="App">
-      <Counter />
-      <Users /> 
-      <Posts/>
-      <Comments/>
-    </div>
+    <Provider store={myStore}>
+      <Navbar/>
+      <Outlet/>
+    </Provider>
   );
 }
 

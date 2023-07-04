@@ -1,25 +1,14 @@
-import {useDispatch, useSelector} from 'react-redux';
-import { getUsersAsync } from '../store/actions/users.actions'
+import { useSelector} from 'react-redux';
 
 const Users = () => {
-   const dispatch = useDispatch();
-   const users = useSelector(state=>state.users.users)
-
-    function handleUsers(){
-      dispatch(getUsersAsync());
-   };
-
+   const users = useSelector(state=>state.api.users);   
    return (
-
     <div>
       {(users.length !== 0) && (
       <ol>
         {users.map((user, index) => (<li key={index}>{user.name}</li> ))}
       </ol>
         )}        
-     
-      
-      <button onClick={handleUsers}>Get Users</button>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { LOAD_USERS, LOAD_POSTS, LOAD_COMMENTS } from "../constants" ;
-import { usersInitStore } from "../store";
+import { apiInitStore } from "../store";
 
-export const users = (store = usersInitStore, action) => {
+export const api = (store = apiInitStore, action) => {
    switch(action.type){
       case LOAD_USERS: {
          return {

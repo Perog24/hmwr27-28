@@ -2,7 +2,7 @@ export const counterInitStore = {
    counter: 1,
 }
 
-export const usersInitStore = {
+export const apiInitStore = {
    users: [],
    posts: [],
    comments: []

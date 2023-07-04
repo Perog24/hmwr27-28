@@ -1,22 +1,35 @@
 import { Fragment } from 'react';
+import { useNavigate } from 'react-router';
+import {useDispatch } from 'react-redux';
+import { getUsersAsync, getPostsAsync, getCommentsAsync } from '../store/actions/users.actions'
+import Counter from './Counter'
 
-export const HomeGage = () => {
+export const HomePage = () => {
+   let navigate = useNavigate();
+   const dispatch = useDispatch();
 
-   function getUsers(){
+   function handleUsers(){
+      dispatch(getUsersAsync());
+      navigate('/users')
+   };
+   function handlePosts(){
+      dispatch(getPostsAsync());
+      navigate('/posts')
+   };
+   
+   function handleComments(){
+      dispatch(getCommentsAsync());
+      navigate('/comments')
+   };
 
-   }
-   function getPosts(){
-
-   }
-   function getComments(){
-      
-   }
    return (
       <Fragment>
          <h3>Home page</h3>
-         <button onClick = {getUsers}>Users</button>
-         <button onClick = {getPosts}>Posts</button>
-         <button onClick = {getComments}>Comments</button>
+         <Counter />
+         <hr/>
+         <button onClick = {handleUsers}>Users</button>
+         <button onClick = {handlePosts}>Posts</button>
+         <button onClick = {handleComments}>Comments</button>
       </Fragment>
    )
 }

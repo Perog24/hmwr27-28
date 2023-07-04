@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux'
 import { counter } from "./counter.reducer";
-import { users } from './users.reducer';
+import { api } from './api.reducer';
 
-export default combineReducers({counter, users});
+export default combineReducers({counter, api});
